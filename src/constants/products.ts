@@ -1,0 +1,182 @@
+import { Product, Service } from '@/types/products';
+
+export const DEMO_PRODUCTS: Product[] = [
+  {
+    id: 'prod-001',
+    name: 'Válvula de Bola Acero Inoxidable 304',
+    category: 'Suministros',
+    material: 'Acero Inoxidable',
+    description: 'Válvula de bola de alta resistencia en acero inoxidable 304, ideal para líneas de producción industrial con fluidos corrosivos.',
+    price: 450000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Material', value: 'Acero Inoxidable 304' },
+      { label: 'Diámetro', value: '2 pulgadas' },
+      { label: 'Presión', value: '1000 PSI' },
+      { label: 'Temperatura', value: '-20°C a 200°C' },
+    ],
+  },
+  {
+    id: 'prod-002',
+    name: 'Kit Electrodos Soldadura E6010',
+    category: 'Equipos de Soldadura',
+    description: 'Kit profesional de electrodos E6010 para soldadura especializada en acero al carbono, penetración profunda y acabado profesional.',
+    price: 180000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Tipo', value: 'E6010' },
+      { label: 'Diámetro', value: '3.2mm' },
+      { label: 'Cantidad', value: '5kg' },
+      { label: 'Aplicación', value: 'Acero al Carbono' },
+    ],
+  },
+  {
+    id: 'prod-003',
+    name: 'Sensor de Proximidad Industrial',
+    category: 'Automatización',
+    description: 'Sensor de proximidad inductivo de alto rendimiento para sistemas de automatización en líneas de producción.',
+    price: 320000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Tipo', value: 'Inductivo' },
+      { label: 'Rango', value: '0-8mm' },
+      { label: 'Voltaje', value: '10-30VDC' },
+      { label: 'Protección', value: 'IP67' },
+    ],
+  },
+  {
+    id: 'prod-004',
+    name: 'Tubo Galvanizado Schedule 40',
+    category: 'Materiales',
+    material: 'Galvanizado',
+    description: 'Tubería galvanizada schedule 40 de alta calidad para aplicaciones industriales y construcción de estructuras.',
+    price: 95000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Material', value: 'Acero Galvanizado' },
+      { label: 'Diámetro', value: '1 pulgada' },
+      { label: 'Longitud', value: '6 metros' },
+      { label: 'Schedule', value: '40' },
+    ],
+  },
+  {
+    id: 'prod-005',
+    name: 'Llave de Impacto Neumática',
+    category: 'Herramientas',
+    description: 'Llave de impacto neumática de alta potencia para mantenimiento industrial, ideal para ensamblaje y desarmado de maquinaria.',
+    price: 850000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Torque', value: '1200 Nm' },
+      { label: 'Presión', value: '90 PSI' },
+      { label: 'Cuadro', value: '1/2 pulgada' },
+      { label: 'Peso', value: '2.3 kg' },
+    ],
+  },
+  {
+    id: 'prod-006',
+    name: 'Rodamiento SKF 6205-2RS',
+    category: 'Mantenimiento',
+    description: 'Rodamiento de bolas sellado SKF de alta precisión para mantenimiento de motores y equipos rotativos industriales.',
+    price: 65000,
+    currency: 'COP',
+    image: 'https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop',
+    inStock: true,
+    specifications: [
+      { label: 'Marca', value: 'SKF' },
+      { label: 'Modelo', value: '6205-2RS' },
+      { label: 'Diámetro Interior', value: '25mm' },
+      { label: 'Diámetro Exterior', value: '52mm' },
+    ],
+  },
+];
+
+export const SERVICES: Service[] = [
+  {
+    id: 'service-001',
+    title: 'Suministros y Herramientas',
+    description: 'Amplio catálogo de herramientas y suministros para mantenimiento de líneas de producción industrial.',
+    icon: 'Wrench',
+    features: [
+      'Más de 500 productos en stock',
+      'Marcas reconocidas internacionalmente',
+      'Entrega rápida en Colombia',
+      'Asesoría técnica especializada',
+    ],
+  },
+  {
+    id: 'service-002',
+    title: 'Materiales Especializados',
+    description: 'Distribución de materiales industriales de alta calidad en diferentes especificaciones.',
+    icon: 'Boxes',
+    features: [
+      'Acero Inoxidable (304, 316, 430)',
+      'Acero al Carbono',
+      'Hierro y derivados',
+      'Materiales galvanizados',
+    ],
+  },
+  {
+    id: 'service-003',
+    title: 'Instalación y Consultoría',
+    description: 'Servicios profesionales de instalación y consultoría para optimizar sus procesos industriales.',
+    icon: 'Handshake',
+    features: [
+      'Instalación de equipos',
+      'Mantenimiento preventivo',
+      'Diagnóstico de procesos',
+      'Optimización de líneas',
+      'Soporte técnico continuo',
+    ],
+  },
+  {
+    id: 'service-004',
+    title: 'Automatización de Procesos',
+    description: 'Soluciones integrales de automatización para aumentar la eficiencia de su producción.',
+    icon: 'Cpu',
+    features: [
+      'Sensores y controladores',
+      'Sistemas PLC',
+      'Integración de sistemas',
+      'Programación personalizada',
+    ],
+  },
+  {
+    id: 'service-005',
+    title: 'Soldadura Especializada',
+    description: 'Servicios de soldadura profesional para aplicaciones industriales exigentes.',
+    icon: 'Flame',
+    features: [
+      'Soldadura TIG y MIG',
+      'Soldadura en acero inoxidable',
+      'Reparación de estructuras',
+      'Certificación de soldaduras',
+    ],
+  },
+];
+
+export const MATERIALS = [
+  'Acero Inoxidable',
+  'Acero al Carbono',
+  'Hierro',
+  'Galvanizado',
+];
+
+export const CATEGORIES = [
+  'Herramientas',
+  'Suministros',
+  'Materiales',
+  'Equipos de Soldadura',
+  'Automatización',
+  'Mantenimiento',
+];
