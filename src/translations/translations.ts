@@ -212,7 +212,7 @@ export const translations = {
       value: { es: 'Colombia', en: 'Colombia' },
     },
     phone: {
-      title: { es: 'Teléfono', en: 'Phone' },
+      title: { es: 'Teléfonos', en: 'Phone' },
       schedule: { es: 'Lun - Vie: 8:00 AM - 6:00 PM', en: 'Mon - Fri: 8:00 AM - 6:00 PM' },
     },
     email: {
@@ -232,7 +232,7 @@ export const translations = {
       namePlaceholder: { es: 'Su nombre completo', en: 'Your full name' },
       email: { es: 'Email', en: 'Email' },
       emailPlaceholder: { es: 'su@email.com', en: 'your@email.com' },
-      phone: { es: 'Teléfono', en: 'Phone' },
+      phone: { es: 'Teléfonos', en: 'Phones ' },
       phonePlaceholder: { es: '+57 (316) 484-7047', en: '+57 (316) 484-7047' },
       company: { es: 'Empresa', en: 'Company' },
       companyPlaceholder: { es: 'Nombre de su empresa', en: 'Your company name' },

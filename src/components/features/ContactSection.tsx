@@ -41,6 +41,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">{translations.contact.phone.title[language]}</h3>
                   <p className="text-muted-foreground">+57 (316) 484-7047</p>
+                  <p className="text-muted-foreground">+57 (316) 447-5588</p>
                   <p className="text-sm text-muted-foreground">{translations.contact.phone.schedule[language]}</p>
                 </div>
               </div>
@@ -52,7 +53,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">{translations.contact.email.title[language]}</h3>
-                  <p className="text-muted-foreground">info@bosons.co</p>
+                  <p className="text-muted-foreground">contacto@bosons.com.co</p>
+                  <p className="text-muted-foreground">bosons.sas@gmail.com</p>
                   <p className="text-sm text-muted-foreground">{translations.contact.email.response[language]}</p>
                 </div>
               </div>
