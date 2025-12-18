@@ -28,6 +28,6 @@ export type CategoryType =
   | 'Herramientas'
   | 'Suministros'
   | 'Materiales'
-  | 'Equipos de Soldadura'
+  | 'Soldadura Industrial'
   | 'Automatización'
   | 'Mantenimiento';

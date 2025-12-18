@@ -3,8 +3,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/translations/translations';
 
 export default function ContactSection() {
+  const { language } = useLanguage();
   return (
     <section id="contacto" className="section-padding bg-background">
       <div className="section-container">
@@ -12,10 +15,10 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Contáctenos
+              {translations.contact.title[language]}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Nuestro equipo de asesores está listo para ayudarle con sus proyectos industriales
+              {translations.contact.subtitle[language]}
             </p>
 
             <div className="space-y-6">
@@ -25,8 +28,8 @@ export default function ContactSection() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Ubicación</h3>
-                  <p className="text-muted-foreground">Colombia</p>
+                  <h3 className="font-semibold text-foreground mb-1">{translations.contact.location.title[language]}</h3>
+                  <p className="text-muted-foreground">{translations.contact.location.value[language]}</p>
                 </div>
               </div>
 
@@ -36,9 +39,9 @@ export default function ContactSection() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Teléfono</h3>
-                  <p className="text-muted-foreground">+57 (XXX) XXX-XXXX</p>
-                  <p className="text-sm text-muted-foreground">Lun - Vie: 8:00 AM - 6:00 PM</p>
+                  <h3 className="font-semibold text-foreground mb-1">{translations.contact.phone.title[language]}</h3>
+                  <p className="text-muted-foreground">+57 (316) 484-7047</p>
+                  <p className="text-sm text-muted-foreground">{translations.contact.phone.schedule[language]}</p>
                 </div>
               </div>
 
@@ -48,9 +51,9 @@ export default function ContactSection() {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
+                  <h3 className="font-semibold text-foreground mb-1">{translations.contact.email.title[language]}</h3>
                   <p className="text-muted-foreground">info@bosons.co</p>
-                  <p className="text-sm text-muted-foreground">Respuesta en 24 horas</p>
+                  <p className="text-sm text-muted-foreground">{translations.contact.email.response[language]}</p>
                 </div>
               </div>
             </div>
@@ -58,23 +61,23 @@ export default function ContactSection() {
             {/* Why Choose Us */}
             <Card className="mt-8 bg-primary text-primary-foreground border-none">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg mb-3">¿Por qué elegirnos?</h3>
+                <h3 className="font-bold text-lg mb-3">{translations.contact.whyChooseUs.title[language]}</h3>
                 <ul className="space-y-2 text-sm opacity-90">
                   <li className="flex items-center gap-2">
                     <span className="text-accent">✓</span>
-                    Más de 500 productos en stock
+                    {translations.contact.whyChooseUs.reason1[language]}
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-accent">✓</span>
-                    Asesoría técnica especializada
+                    {translations.contact.whyChooseUs.reason2[language]}
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-accent">✓</span>
-                    Garantía en todos nuestros productos
+                    {translations.contact.whyChooseUs.reason3[language]}
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-accent">✓</span>
-                    Envíos a toda Colombia
+                    {translations.contact.whyChooseUs.reason4[language]}
                   </li>
                 </ul>
               </CardContent>
@@ -85,25 +88,25 @@ export default function ContactSection() {
           <Card className="border-border">
             <CardContent className="p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">
-                Envíenos un mensaje
+                {translations.contact.form.title[language]}
               </h3>
               <form className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-1.5 block">
-                      Nombre *
+                      {translations.contact.form.name[language]} *
                     </label>
                     <Input 
-                      placeholder="Su nombre completo" 
+                      placeholder={translations.contact.form.namePlaceholder[language]}
                       required 
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-1.5 block">
-                      Empresa
+                      {translations.contact.form.company[language]}
                     </label>
                     <Input 
-                      placeholder="Nombre de su empresa" 
+                      placeholder={translations.contact.form.companyPlaceholder[language]}
                     />
                   </div>
                 </div>
@@ -111,21 +114,21 @@ export default function ContactSection() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-1.5 block">
-                      Email *
+                      {translations.contact.form.email[language]} *
                     </label>
                     <Input 
                       type="email" 
-                      placeholder="email@empresa.com" 
+                      placeholder={translations.contact.form.emailPlaceholder[language]}
                       required 
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-1.5 block">
-                      Teléfono *
+                      {translations.contact.form.phone[language]} *
                     </label>
                     <Input 
                       type="tel" 
-                      placeholder="+57 XXX XXX XXXX" 
+                      placeholder={translations.contact.form.phonePlaceholder[language]}
                       required 
                     />
                   </div>
@@ -133,27 +136,27 @@ export default function ContactSection() {
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">
-                    Asunto *
+                    {translations.contact.form.service[language]} *
                   </label>
                   <Input 
-                    placeholder="¿En qué podemos ayudarle?" 
+                    placeholder={translations.contact.form.servicePlaceholder[language]}
                     required 
                   />
                 </div>
 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">
-                    Mensaje *
+                    {translations.contact.form.message[language]} *
                   </label>
                   <Textarea 
-                    placeholder="Describa sus necesidades o consulta..."
+                    placeholder={translations.contact.form.messagePlaceholder[language]}
                     rows={5}
                     required
                   />
                 </div>
 
                 <Button type="submit" size="lg" className="w-full btn-primary gap-2">
-                  Enviar Mensaje
+                  {translations.contact.form.send[language]}
                   <Send className="h-4 w-4" />
                 </Button>
 

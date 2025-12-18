@@ -1,31 +1,34 @@
 import { CreditCard, Building2, Shield, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/translations/translations';
 
 export default function PaymentSection() {
+  const { language } = useLanguage();
   const paymentMethods = [
     {
       icon: Building2,
-      title: 'Transferencia Bancaria',
-      description: 'Bancolombia, Davivienda, BBVA',
-      details: 'Procesos seguros y verificados',
+      title: translations.payment.methods.bankTransfer.title[language],
+      description: translations.payment.methods.bankTransfer.description[language],
+      details: translations.payment.methods.bankTransfer.details[language],
     },
     {
       icon: CreditCard,
-      title: 'PSE',
-      description: 'Pagos en línea seguros',
-      details: 'Desde todos los bancos colombianos',
+      title: translations.payment.methods.pse.title[language],
+      description: translations.payment.methods.pse.description[language],
+      details: translations.payment.methods.pse.details[language],
     },
     {
       icon: Clock,
-      title: 'Crédito Empresarial',
-      description: 'Plazos de hasta 60 días',
-      details: 'Para clientes corporativos',
+      title: translations.payment.methods.credit.title[language],
+      description: translations.payment.methods.credit.description[language],
+      details: translations.payment.methods.credit.details[language],
     },
     {
       icon: Shield,
-      title: 'Pago Contra Entrega',
-      description: 'Disponible en ciudades principales',
-      details: 'Paga cuando recibas tu pedido',
+      title: translations.payment.methods.cod.title[language],
+      description: translations.payment.methods.cod.description[language],
+      details: translations.payment.methods.cod.details[language],
     },
   ];
 
@@ -35,10 +38,10 @@ export default function PaymentSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Opciones de Pago Seguras
+            {translations.payment.title[language]}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Múltiples opciones de pago para facilitar sus compras empresariales
+            {translations.payment.subtitle[language]}
           </p>
         </div>
 
@@ -65,10 +68,10 @@ export default function PaymentSection() {
         <div className="mt-12 bg-primary text-primary-foreground rounded-xl p-8 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Shield className="h-6 w-6" />
-            <h3 className="text-xl font-bold">Transacciones 100% Seguras</h3>
+            <h3 className="text-xl font-bold">{translations.payment.secureTransactions[language]}</h3>
           </div>
           <p className="opacity-90">
-            Todos los pagos están protegidos con encriptación de nivel bancario
+            {translations.payment.secureDescription[language]}
           </p>
         </div>
       </div>

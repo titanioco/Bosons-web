@@ -1,6 +1,8 @@
 import { useEffect, useState, type MouseEvent } from 'react';
 import { Search, ShoppingCart, Menu, Phone, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/translations/translations';
 
 const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, target: string) => {
   event.preventDefault();
@@ -11,16 +13,11 @@ const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, target: string) =>
 };
 
 export default function Header() {
-  const [isEnglish, setIsEnglish] = useState(false);
+  const { language, toggleLanguage, isEnglish } = useLanguage();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const storedLanguage = localStorage.getItem('language');
-    if (storedLanguage === 'en') {
-      setIsEnglish(true);
-    }
 
     const storedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -28,16 +25,6 @@ export default function Header() {
     document.documentElement.classList.toggle('dark', shouldUseDark);
     setIsDarkMode(shouldUseDark);
   }, []);
-
-  const toggleLanguage = () => {
-    setIsEnglish((prev) => {
-      const next = !prev;
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('language', next ? 'en' : 'es');
-      }
-      return next;
-    });
-  };
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => {
@@ -51,12 +38,12 @@ export default function Header() {
   };
 
   const navItems = [
-    { href: '#servicios', label: isEnglish ? 'Services' : 'Servicios', smooth: true },
-    { href: '#productos', label: isEnglish ? 'Products' : 'Productos', smooth: true },
-    { href: '#materiales', label: isEnglish ? 'Materials' : 'Materiales' },
-    { href: '#automatizacion', label: isEnglish ? 'Automation' : 'Automatización' },
-    { href: '#soldadura', label: isEnglish ? 'Welding' : 'Soldadura' },
-    { href: '#contacto', label: isEnglish ? 'Contact' : 'Contacto' },
+    { href: '#servicios', label: translations.header.nav.services[language], smooth: true },
+    { href: '#productos', label: translations.header.nav.products[language], smooth: true },
+    { href: '#materiales', label: translations.header.nav.materials[language] },
+    { href: '#automatizacion', label: translations.header.nav.automation[language] },
+    { href: '#soldadura', label: translations.header.nav.welding[language] },
+    { href: '#contacto', label: translations.header.nav.contact[language], smooth: true  },
   ];
 
   return (
@@ -67,15 +54,15 @@ export default function Header() {
           <div className="flex items-center justify-between py-2 text-sm">
             <div className="flex items-center gap-4">
               <span className="hidden sm:inline">
-                {isEnglish ? '🇨🇴 Shipping across Colombia' : '🇨🇴 Envíos a toda Colombia'}
+                {translations.header.shippingText[language]}
               </span>
               <span className="text-xs sm:text-sm">
-                {isEnglish ? 'Over 500 industrial products' : 'Más de 500 productos industriales'}
+                {translations.header.productsCount[language]}
               </span>
             </div>
             <a href="tel:+57" className="flex items-center gap-1 hover:opacity-80 transition-opacity">
               <Phone className="h-3 w-3" />
-              <span className="hidden sm:inline">{isEnglish ? 'Contact' : 'Contacto'}</span>
+              <span className="hidden sm:inline">{translations.header.contact[language]}</span>
             </a>
           </div>
         </div>
@@ -94,7 +81,7 @@ export default function Header() {
             <div className="hidden sm:block">
               <h1 className="text-2xl font-bold text-foreground">BOSONS</h1>
               <p className="text-xs text-muted-foreground">
-                {isEnglish ? 'Industrial Equipment' : 'Equipos Industriales'}
+                {translations.header.industrialEquipment[language]}
               </p>
             </div>
           </a>
@@ -104,11 +91,7 @@ export default function Header() {
             <div className="relative w-full">
               <input
                 type="text"
-                placeholder={
-                  isEnglish
-                    ? 'Search products, materials, services...'
-                    : 'Buscar productos, materiales, servicios...'
-                }
+                placeholder={translations.header.searchPlaceholder[language]}
                 className="w-full px-4 py-2 pl-10 bg-muted border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

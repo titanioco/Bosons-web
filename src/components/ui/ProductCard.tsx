@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { ShoppingCart, CheckCircle, Eye } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Product } from '@/types/products';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/translations/translations';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { language } = useLanguage();
+  const [imgSrc, setImgSrc] = useState(product.image);
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-CO', {
       style: 'currency',
@@ -22,20 +28,22 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Image Container */}
       <div className="relative overflow-hidden bg-muted aspect-[4/3]">
         <img
-          src={product.image}
+          src={imgSrc}
           alt={product.name}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          onError={() => setImgSrc('https://images.unsplash.com/photo-1581091215367-59ab6b478c66?auto=format&fit=crop&w=800&q=80')}
         />
         
         {/* Overlay on Hover */}
         <div className="absolute inset-0 bg-primary-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
           <Button size="sm" variant="secondary" className="gap-2">
             <Eye className="h-4 w-4" />
-            Ver
+            {translations.productCard.view[language]}
           </Button>
           <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground">
             <ShoppingCart className="h-4 w-4" />
-            Agregar
+            {translations.productCard.add[language]}
           </Button>
         </div>
 
@@ -43,7 +51,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {product.inStock && (
           <Badge className="absolute top-3 right-3 bg-green-500 hover:bg-green-600">
             <CheckCircle className="h-3 w-3 mr-1" />
-            Disponible
+            {translations.productCard.available[language]}
           </Badge>
         )}
 
@@ -89,7 +97,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <p className="text-2xl font-bold text-foreground">
               {formatPrice(product.price)}
             </p>
-            <p className="text-xs text-muted-foreground">IVA incluido</p>
+            <p className="text-xs text-muted-foreground">{translations.productCard.vatIncluded[language]}</p>
           </div>
           <Button size="sm" className="bg-primary hover:bg-primary-600">
             <ShoppingCart className="h-4 w-4" />

@@ -1,7 +1,11 @@
 import { ArrowRight, ShieldCheck, Truck, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/translations/translations';
 
 export default function HeroSection() {
+  const { language } = useLanguage();
+  
   return (
     <section className="relative bg-gradient-to-br from-primary-900 via-primary-700 to-primary-600 text-primary-foreground overflow-hidden dark:from-primary-400 dark:via-primary-300 dark:to-primary-200 dark:text-primary-foreground">
       {/* Background Pattern */}
@@ -16,23 +20,22 @@ export default function HeroSection() {
           {/* Content */}
           <div className="space-y-6 text-center lg:text-left">
             <div className="inline-block px-4 py-2 bg-accent/20 rounded-full text-accent text-sm font-semibold dark:bg-accent-foreground/20">
-              🏭 Líderes en Suministros Industriales
+              {translations.hero.badge[language]}
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Equipos y Soluciones Industriales de{' '}
-                <span className="text-accent dark:text-yellow-400">Calidad Superior</span>
+              {translations.hero.title[language]}{' '}
+                <span className="text-accent dark:text-yellow-400">{translations.hero.titleHighlight[language]}</span>
             </h1>
             
             <p className="text-lg md:text-xl opacity-90 text-balance">
-              Suministros, materiales especializados, automatización y servicios 
-              profesionales para la industria colombiana. Más de 500 productos en stock.
+              {translations.hero.description[language]}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button size="lg" className="btn-accent text-base">
-                Ver Catálogo
+                {translations.hero.viewCatalog[language]}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
@@ -40,7 +43,7 @@ export default function HeroSection() {
                 variant="outline"
                 className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-base dark:border-primary-foreground dark:text-primary-foreground dark:hover:bg-primary-foreground dark:hover:text-primary"
               >
-                Contactar Asesor
+                {translations.hero.contactAdvisor[language]}
               </Button>
             </div>
 
@@ -49,22 +52,22 @@ export default function HeroSection() {
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-8 w-8 text-accent flex-shrink-0" />
                 <div className="text-sm">
-                  <div className="font-semibold">Garantía</div>
-                  <div className="opacity-75">Certificada</div>
+                  <div className="font-semibold">{translations.hero.warranty[language]}</div>
+                  <div className="opacity-75">{translations.hero.warrantyCertified[language]}</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="h-8 w-8 text-accent flex-shrink-0" />
                 <div className="text-sm">
-                  <div className="font-semibold">Envíos</div>
-                  <div className="opacity-75">Nacionales</div>
+                  <div className="font-semibold">{translations.hero.shipping[language]}</div>
+                  <div className="opacity-75">{translations.hero.shippingNational[language]}</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-8 w-8 text-accent flex-shrink-0" />
                 <div className="text-sm">
-                  <div className="font-semibold">Calidad</div>
-                  <div className="opacity-75">Premium</div>
+                  <div className="font-semibold">{translations.hero.quality[language]}</div>
+                  <div className="opacity-75">{translations.hero.qualityPremium[language]}</div>
                 </div>
               </div>
             </div>
@@ -75,7 +78,7 @@ export default function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-card">
               <img
                 src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop"
-                alt="Equipos Industriales Bosons"
+                alt={translations.hero.imageAlt[language]}
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent dark:from-primary-900/60 dark:via-primary-800/30" />
@@ -85,7 +88,7 @@ export default function HeroSection() {
             <div className="absolute -bottom-6 -left-6 bg-card text-card-foreground p-6 rounded-xl shadow-xl border border-border max-w-xs dark:bg-white dark:text-foreground">
               <div className="text-4xl font-bold text-primary">500+</div>
               <div className="text-sm text-muted-foreground mt-1">
-                Productos industriales disponibles
+                {translations.hero.productsAvailable[language]}
               </div>
             </div>
           </div>
